@@ -1,0 +1,27 @@
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Raj Garg",
+    "jobTitle": "Digital Creator | Content Creator",
+    "url": "https://rwebgarg-official.github.io/rajgarg/",
+    "image": "https://rwebgarg-official.github.io/rajgarg/rajgarg.jpeg",
+    "sameAs": [
+        "https://www.youtube.com/@rockraj0",
+        "https://www.instagram.com/rockraj.28/",
+        "https://www.facebook.com/profile.php?id=100016866873301",
+        "https://open.spotify.com/artist/7MUEooDwbPpaSB7HmZo28d",
+        "https://music.apple.com/us/artist/rock-raj/1847698053",
+        "https://music.amazon.in/artists/B0FX5YHCZV/rock-raj"
+    ],
+    "knowsAbout": [
+        "Web Development",
+        "Content Creation",
+        "Digital Marketing"
+    ],
+    "description": "Raj Garg is a Digital Creator and Content Creator based in India. Powered by Stegure.in.",
+    "sponsor": {
+        "@type": "Organization",
+        "name": "Stegure",
+        "url": "https://stegure.in"
+    }
+}
