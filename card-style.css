@@ -1,0 +1,342 @@
+:root {
+    --primary-color: #4facfe;
+    --secondary-color: #00f2fe;
+    --bg-color: #f0f2f5;
+    --text-color: #333;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --card-border: rgba(255, 255, 255, 0.5);
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --btn-bg: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --btn-text: white;
+    --icon-bg: #fff;
+    --icon-hover: #4facfe;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f2f5;
+    --card-bg: rgba(20, 20, 20, 0.8);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    --icon-bg: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+/* Dynamic Background Shapes */
+.background-shapes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.6;
+    animation: float 10s infinite alternate;
+}
+
+.shape:nth-child(1) {
+    top: -10%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: #4facfe;
+}
+
+.shape:nth-child(2) {
+    bottom: -10%;
+    right: -10%;
+    width: 250px;
+    height: 250px;
+    background: #00f2fe;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(30px, 50px);
+    }
+}
+
+/* Card Container */
+.card-container {
+    perspective: 1000px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    z-index: 10;
+    transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: rotate(20deg);
+}
+
+/* Profile Section */
+.profile-img-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 18px;
+    height: 18px;
+    background: #2ecc71;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+.name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.designation {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.bio {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+/* Social Links List */
+.social-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 35px;
+    padding: 0 10px;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 20px;
+    border-radius: 50px;
+    /* Pill shape */
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.social-item:hover {
+    transform: translateY(-3px);
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+    border-color: transparent;
+}
+
+.social-item i {
+    font-size: 1.4rem;
+    margin-right: 15px;
+    width: 30px;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.social-text {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Hover effect specific overrides if needed */
+.social-item:hover i {
+    color: white;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 172, 254, 0.6);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* QR Code */
+.qr-section {
+    border-top: 1px solid var(--card-border);
+    padding-top: 25px;
+    margin-top: 25px;
+}
+
+.qr-code {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 10px;
+    background: white;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.qr-text {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .card {
+        padding: 30px 20px;
+    }
+
+    .name {
+        font-size: 1.8rem;
+    }
+
+    .actions {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Footer Ad */
+.footer-ad {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--card-border);
+    font-size: 0.85rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.ad-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.ad-link:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
